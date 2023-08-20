@@ -1,0 +1,163 @@
+/*
+
+* {: The asterisk (*) is a universal selector that selects all elements on a page. This means that the styles within the curly braces will be applied to every element on the page.
+padding: 0;: This line sets the padding of all elements to 0. Padding is the space between an element’s content and its border. By setting it to 0, you remove any default padding that may be applied by the browser’s user agent stylesheet.
+margin: 0;: This line sets the margin of all elements to 0. Margin is the space outside of an element’s border. By setting it to 0, you remove any default margin that may be applied by the browser’s user agent stylesheet.
+box-sizing: border-box;: This line sets the box-sizing property of all elements to border-box. By default, the width and height of an element are calculated based on its content box, meaning that any padding or border will increase the total size of the element. By setting box-sizing to border-box, the width and height will include any padding and border, making it easier to size elements.
+}: This closes the curly brace opened by the universal selector.
+In summary, this code removes any default padding and margin from all elements on a page and sets their box-sizing property to border-box. This can make it easier to create consistent layouts across different browsers, as it removes any default styles applied by the browser’s user agent stylesheet. I hope this helps! 😊
+*/
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/*
+
+:root {: The :root selector selects the root element of the document, which is usually the <html> element. By defining custom properties on the :root element, you make them available to all elements on the page.
+--orange: #F2C14E;: This line defines a custom property called --orange and sets its value to #F2C14E, which is a shade of orange. Custom properties are defined using two hyphens (--) followed by the property name.
+--winning-blocks: #2d414b;: This line defines another custom property called --winning-blocks and sets its value to #2d414b, which is a shade of gray.
+}: This closes the curly brace opened by the :root selector.
+
+*/
+:root {
+  --orange: #F2C14E;
+  --winning-blocks: #2d414b;
+}
+
+/*
+
+body {: The body selector selects the <body> element of the document, which contains all the content of the page. By defining styles for the body element, you set default styles for all elements within the <body> element.
+color: var(--orange);: This line sets the text color of the body element to the value of the --orange custom property. The var() function is used to retrieve the value of a custom property. In this case, it retrieves the value of the --orange custom property that was defined earlier in your stylesheet.
+font-family: 'Finger Paint', cursive;: This line sets the font family of the body element to 'Finger Paint', with a fallback font of cursive. The font-family property specifies a list of fonts, separated by commas, to be used for an element’s text. The browser will use the first font in the list that is available on the user’s device. If none of the fonts in the list are available, the browser will use its default font.
+}: This closes the curly brace opened by the body selector.
+
+*/
+body {
+  color: var(--orange);
+  font-family: 'Finger Paint', cursive;
+}
+
+/*
+
+The code you provided is an example of setting the font size and text transformation for h1 elements in an HTML document. Here’s a brief explanation of each line of code:
+
+h1 {: The h1 selector selects all <h1> elements on the page. By defining styles for the h1 element, you set styles for all <h1> elements on the page.
+font-size: 54px;: This line sets the font size of all <h1> elements to 54 pixels. The font-size property specifies the size of the font used for an element’s text.
+text-transform: uppercase;: This line sets the text transformation of all <h1> elements to uppercase. The text-transform property controls the capitalization of text. In this case, it is set to uppercase, which means that all characters will be displayed in uppercase, regardless of how they are entered in the HTML code.
+}: This closes the curly brace opened by the h1 selector.
+
+*/
+h1 {
+  font-size: 54px;
+  text-transform: uppercase;
+}
+
+/*
+
+This code defines the style for an HTML element with the class container. The element has a padding of 40 pixels, 
+a height of 100% of the viewport height, and a background color of #37505C.
+ The element is also displayed as a flex container, with its child elements aligned in the center both horizontally and vertically, and arranged in a column. 
+ This means that the child elements will be stacked on top of each other, centered within the container.
+
+*/
+.container {
+  padding: 40px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #37505C;
+}
+/*
+This code defines the style for an HTML element with the id gameboard. 
+The element has a width of 300 pixels and is displayed as a flex container.
+ The child elements of the container will wrap if necessary.
+ The element also has a top margin of 40 pixels.
+*/
+#gameboard {
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+/*
+
+This code defines the style for an HTML element with the class box. 
+The element has a height and width of 100 pixels, and is displayed as a flex container. 
+The child elements of the container are aligned in the center both horizontally and vertically.
+ The text color of the element is set to the value of the --orange CSS variable, and the font size is set to 120 pixels.
+  The element also has a right and bottom border that is 2 pixels wide and solid.
+
+*/
+.box {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orange);
+  font-size: 120px;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+}
+
+/*
+
+This CSS code selects every third element with the class box and removes its right border.
+ The :nth-child(3n) selector matches every element that is the third child of its parent, among a group of siblings with the same class. 
+In this case, it selects every third element with the class box and sets its border-right property to none, effectively removing the right border of those elements.
+*/
+
+.box:nth-child(3n) {
+  border-right: none;
+}
+/*
+
+This CSS code selects all elements with the class box that come after the sixth element with the class box, and removes their bottom border.
+ The :nth-child(6) selector matches the sixth child element of its parent, among a group of siblings with the same class.
+  The ~ combinator selects all subsequent siblings of the specified element that match the given selector.
+   In this case, it selects all elements with the class box that come after the sixth element with the class box, and sets their border-bottom property to none, effectively removing the bottom border of those elements.
+
+*/
+.box:nth-child(6) ~ .box {
+  border-bottom: none;
+} 
+/*
+
+This CSS code defines the style for an HTML button element.
+ The button has a padding of 10 pixels on the top and bottom, and 20 pixels on the left and right.
+  It has a border radius of 10 pixels, giving it rounded corners. 
+  The background color of the button is set to the value of the --orange CSS variable, and the text color is set to #333.
+   The border color of the button is also set to the value of the --orange CSS variable. 
+   The font size of the button text is set to 18 pixels, and the font weight is set to 600, making it bold.
+    The button also has a transition effect applied to its transform property, with a duration of 200 milliseconds.
+
+*/
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: var(--orange);
+  color: #333;
+  border-color: var(--orange);
+  font-size: 18px;
+  transition: 200ms transform;
+  font-weight: 600;
+}
+/*
+
+This CSS code defines the style for an HTML button element.
+ The button has a padding of 10 pixels on the top and bottom, and 20 pixels on the left and right.
+  It has a border radius of 10 pixels, giving it rounded corners. 
+  The background color of the button is set to the value of the --orange CSS variable, and the text color is set to #333.
+   The border color of the button is also set to the value of the --orange CSS variable.
+    The font size of the button text is set to 18 pixels, and the font weight is set to 600, making it bold. 
+The button also has a transition effect applied to its transform property, with a duration of 200 milliseconds.
+*/
+button:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+}
